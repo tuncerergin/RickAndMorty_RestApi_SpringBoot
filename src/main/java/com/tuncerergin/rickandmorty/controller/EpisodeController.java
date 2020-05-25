@@ -33,9 +33,9 @@ public class EpisodeController {
             theEpisode.setSeason(theEpisode.getEpisode().substring(1, 3));
             theEpisode.setSeasonEpisode(theEpisode.getEpisode().substring(4));
 
-            List<Result> character = new ArrayList<>();
+            List<com.tuncerergin.rickandmorty.entity.character.Result> character = new ArrayList<>();
             for (String characterUrl : theEpisode.getCharacters()) {
-                Result episodeResult =
+                com.tuncerergin.rickandmorty.entity.character.Result episodeResult =
                         restService.getCharacter(Long.parseLong(characterUrl.substring(characterUrl.lastIndexOf("/") + 1) + ""));
                 character.add(episodeResult);
             }
