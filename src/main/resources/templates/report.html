@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cartoon</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+<body>
+<header>
+    <div id="header">
+        <h2 class="text-center p-3 mb-5 bg-primary text-white">
+            Api Report
+        </h2>
+    </div>
+</header>
+<section id="container" class="container">
+    <table class="table table-striped border">
+        <thead class="bg-secondary">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Endpoint Name</th>
+            <th scope="col">Total request</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="endpoint,i:${endpoint}">
+            <th scope="row" th:text="${i.index+1}"></th>
+            <td th:text="${endpointUrl.get(i.index)}"></td>
+            <td th:text="${endpoint.getMeasurements().get(0).getValue()}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

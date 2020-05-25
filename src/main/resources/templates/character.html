@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cartoon</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+<body>
+<header>
+    <div id="header">
+        <h2 class="text-center p-3 mb-2 bg-primary text-white">
+            Character
+        </h2>
+    </div>
+</header>
+<section id="container" class="container">
+
+    <hr>
+    <div class="card">
+        <img class="card-img-top rounded-circle mx-auto d-block w-25" th:src="${character.getImage()}"
+             alt="">
+        <div class="card-body">
+            <h3 class="text-center" th:text="${character.getName()}"></h3>
+            <span class="text-muted">Gender: </span>
+            <span class="card-text" th:text="${character.getGender()}"></span><br>
+
+            <p class="card-text" th:text="${character.getStatus()+' - '+character.getSpecies()}"></p>
+            <span class="text-muted">Last known location: </span>
+            <span class="card-text" th:text="${character.getLocation().getName()}"></span><br>
+            <span class="card-text text-muted">First seen in: </span>
+            <span class="card-text" th:text="${character.getOrigin().getName()}"></span><br>
+        </div>
+        <ul class="list-group list-group-flush" th:each="episode:${episodes}">
+            <a th:href="@{/api/episode/(id=${episode.getId()})}">
+                <li class="list-group-item" th:text="${episode.getEpisode()+' '+ episode.getName()}"></li>
+            </a>
+
+        </ul>
+    </div>
+</section>
+</body>
+</html>

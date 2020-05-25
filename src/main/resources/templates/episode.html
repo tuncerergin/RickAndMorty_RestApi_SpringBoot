@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cartoon</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+<body>
+<header>
+    <div id="header">
+        <h2 class="text-center p-3 mb-2 bg-primary text-white">
+            Episode
+        </h2>
+    </div>
+</header>
+<section id="container" class="container">
+
+    <hr>
+    <div class="card mb-3">
+        <img class="card-img-top mx-auto d-block w-25"
+             src="https://cdn1.iconfinder.com/data/icons/google-products/512/3_YouTube_TV_Google_Product_Logo_Brand-512.png"
+             alt="">
+        <div class="card-body">
+            <h3 class="text-center" th:text="${episode.getName()}"></h3>
+            <span class="text-muted">Season: </span>
+            <span class="card-text" th:text="${episode.getSeason()}"></span><br>
+            <span class="text-muted">Episode: </span>
+            <span class="card-text" th:text="${episode.getSeasonEpisode()}"></span><br>
+        </div>
+    </div>
+    <label>Characters in this episode:</label>
+
+    <div class="main-content">
+        <div class="section-content section-content-p30">
+            <div class="container-fluid">
+                <div class="row text-center">
+                    <div class="col-md-3" th:each="tempCharacter : ${character}">
+                        <div class="card mb-3">
+                            <div class="row no-gutters">
+                                <div class="col-sm-5">
+                                    <img class="card-img-top mx-auto d-block rounded-circle w-75 m-3"
+                                         th:src="${tempCharacter.getImage()}" alt="Card image cap"
+                                         th:classappend="${tempCharacter.getStatus()}=='Alive' ? 'border border-success' : (${tempCharacter.getStatus()}=='Dead' ? 'border border-danger' : 'border border-warning')">
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="card-body">
+                                        <a th:href="@{/api/character/(id=${tempCharacter.getId()})}"
+                                           th:text="${tempCharacter.getName()}" class="card-title font-weight-bold">
+                                        </a><br>
+                                        <small>
+                                        <span class="card-text"
+                                              th:text="${tempCharacter.getStatus()+' - '+tempCharacter.getSpecies()}"></span></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
