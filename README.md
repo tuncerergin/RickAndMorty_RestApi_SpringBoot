@@ -1,4 +1,6 @@
 # Java Developer Demo Uygulaması
+![Java CI with Maven](https://github.com/tuncerergin/RickAndMorth/workflows/Java%20CI%20with%20Maven/badge.svg)
+
 İstanbulda bir firma ile yapmış olduğum iş görüşmesinin teknik aşamasında istenilen Spring-boot ve Rest-Api kullanımı ile ilgili bir proje geliştirilmesi istenmiştir.
 
 Firma tarafından isterler aşağıdaki gibi belirlenmiştir
