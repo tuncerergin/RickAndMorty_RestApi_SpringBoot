@@ -1,5 +1,9 @@
 # Java Developer Demo Uygulaması
+İstanbulda bir firma ile yapmış olduğum iş görüşmesinin teknik aşamasında istenilen Spring-boot ve Rest-Api kullanımı ile ilgili bir proje geliştirilmesi istenmiştir.
+
 Firma tarafından isterler aşağıdaki gibi belirlenmiştir
+
+Uygulamayı test etmek için -> https://rickandmorth.herokuapp.com/
 <hr>
 Demo uygulama için Rick And Morty çizgi filminin api'si seçilmiştir. Bu api hakkında genel bilgi için
 
